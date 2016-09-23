@@ -440,12 +440,15 @@ class CALIB(object):
         self.keep_parsets   = args.keep_parsets
         self.keep_skymodels = args.keep_skymodels
         self.keep_solutions = args.keep_solutions
-        self.target_obsid   = int(args.target_obsid.lstrip("L"))  # Want to accept both L12345 as 12345 as input.
-        self.calibr_obsid    = int(args.calibr_obsid.lstrip("L"))
-        self.separate_calibr = bool(self.target_obsid)   # They should either both exist or be None so check pnly one.
+        try:
+            self.target_obsid   = int(args.target_obsid.lstrip("L"))  # Want to accept both L12345 as 12345 as input.
+            self.calibr_obsid    = int(args.calibr_obsid.lstrip("L"))
+        except AttributeError:
+            pass      # this means that either of those is not set, which can happen if doing calibration on source in field.
+        self.separate_calibr = bool(args.target_obsid)   # They should either both exist or be None so check pnly one.
         self.interleaved    = args.interleaved
 
-        if bool(self.target_obsid) != bool(self.calibr_obsid):  # This is essentially not (target_obsid xor calibr_obsid).
+        if bool(args.target_obsid) != bool(args.calibr_obsid):  # This is essentially not (target_obsid xor calibr_obsid).
             parser.error("--target_obsid and --calibr_obsid should be provided together!")
 
         if self.interleaved:
