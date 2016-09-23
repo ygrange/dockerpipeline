@@ -328,7 +328,7 @@ class CALIB(object):
         try:
             self._generate_dirlist()
         except ValueError:
-            logger.error("Error generating dir list", exc_info=True)
+            self.logger.error("Error generating dir list", exc_info=True)
 	    raise
 
 
