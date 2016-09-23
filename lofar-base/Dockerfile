@@ -70,7 +70,7 @@ RUN apt-get update && \
 #
 RUN echo 'ALL ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers && \
     sed -i 's/requiretty/!requiretty/g' /etc/sudoers && \
-    chmod a+rw /etc/group /etc/passwd
+    chmod a+rw /etc/group /etc/passwd /home
 
 #
 # setup install dir

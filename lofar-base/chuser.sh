@@ -26,7 +26,7 @@ if [ -z "${USER}" ]; then
 fi
 
 # Create home directory
-if [ -z "${HOME}" ]; then
+if [ -n "${HOME}" ]; then
   export HOME=/home/${USER}
   mkdir -p $HOME && cd $HOME
 fi
