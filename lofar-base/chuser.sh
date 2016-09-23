@@ -38,12 +38,10 @@ fgrep -q ":x:${UID}:" /etc/group  || echo "${USER}:x:${UID}:" >> /etc/group
 # Set the environment
 [ -e /opt/bashrc ] && source /opt/bashrc
 
-# activate the group
-newgrp ${USER}
-
 # Run the requested command
 if [ -z "$*" ]; then
-  exec /bin/bash
+  echo HALLO
+  exec sg ${USER} "/bin/bash --rcfile ${INSTALLDIR}/bashrc"
 else
-  exec "$@"
+  exec sg ${USER} "$@"
 fi
