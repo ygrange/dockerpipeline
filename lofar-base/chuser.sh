@@ -40,7 +40,6 @@ fgrep -q ":x:${UID}:" /etc/group  || echo "${USER}:x:${UID}:" >> /etc/group
 
 # Run the requested command
 if [ -z "$*" ]; then
-  echo HALLO
   exec sg ${USER} "/bin/bash --rcfile ${INSTALLDIR}/bashrc"
 else
   exec sg ${USER} "$@"
