@@ -78,5 +78,3 @@ RUN apt-get update && apt-get install -y subversion cmake g++ gfortran bison fle
     apt-get purge -y subversion cmake g++ gfortran bison flex liblog4cplus-dev libhdf5-dev libblitz0-dev libboost-dev libboost-python-dev python-dev libxml2-dev pkg-config libpng12-dev libfftw3-dev libunittest++-dev libxml++2.6-dev libgsl-dev libboost-filesystem${BOOST_VERSION}-dev libboost-date-time${BOOST_VERSION}-dev libboost-thread${BOOST_VERSION}-dev binutils-dev libcfitsio3-dev wcslib-dev libopenblas-dev && \
     apt-get autoremove --purge -y
 
-## Copy in CALIB script
-COPY ["CALIB.py", "${INSTALLDIR}/pipeline_script"]

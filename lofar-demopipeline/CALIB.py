@@ -340,7 +340,7 @@ class CALIB(object):
         parser = argparse.ArgumentParser(
             description="Pipeline to gain calibrate a Measurement Set (MS), " + \
                         "transfer solutions, RM correct, flag, and image. " + \
-                        "Requires the LOFAR software suite, WSClean, RMextract, gsm.py to be available. " + \
+                        "Requires the LOFAR software suite, WSClean, RMextract, gsm_wrapper to be available. " + \
                         "Assumes measurement set naming according to the following convention: " + \
                         "target MSs are named *SB[ddd]*[postfix], where ddd are 3 digit subband indices, " + \
                         "and calibrator Ms *SB[ddd+244]*[postfix] have implicit indices with 244 added.")
@@ -1405,7 +1405,7 @@ def get_gsm_skymodel(ms,
                str(radius) +'deg_Ft' + str(fluxthresh) + 'Jy_' + filename_id + '.skymodel'
     arguments = "{} {} {} {} {} 0.01".format(filename, ra_target, dec_target,
                                              radius, fluxthresh)
-    cmd         = "gsm.py " + arguments
+    cmd         = "gsm_wrapper " + arguments
 
     run_command(cmd)
 
