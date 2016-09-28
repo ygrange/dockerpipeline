@@ -1,4 +1,4 @@
-FROM  lofar-pipeline
+FROM  lofar-wsclean
 
 
 ## Copy in CALIB script
