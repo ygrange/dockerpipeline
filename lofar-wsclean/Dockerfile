@@ -1,6 +1,6 @@
 FROM lofar-pipeline
 
-ENV WSCLEAN_VERSION 1.12
+ENV WSCLEAN_VERSION=1.12
 
 # install wsclean
 # Note: install with LOFAR station response correction
