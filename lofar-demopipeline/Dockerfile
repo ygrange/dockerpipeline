@@ -5,7 +5,7 @@ FROM  lofar-wsclean
 COPY ["CALIB.py", "${INSTALLDIR}/pipeline_script"]
 
 RUN sudo apt-get -y update && \
-    sudo apt-get -y install wget bzip2 time&& \
+    sudo apt-get -y install wget bzip2 time && \
     echo deb http://dev.monetdb.org/downloads/deb/ trusty monetdb >  /etc/apt/sources.list.d/monetdb.list && \
     echo deb-src http://dev.monetdb.org/downloads/deb/ trusty monetdb >>  /etc/apt/sources.list.d/monetdb.list && \
     wget --output-document=- https://www.monetdb.org/downloads/MonetDB-GPG-KEY | sudo apt-key add - && \
